@@ -25,8 +25,11 @@ function getColor(magnitude){
   return color;
 }
 // Adding tile layer
-L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
-  "access_token=pk.eyJ1IjoiYWRpdGlzaGFybWEiLCJhIjoiY2poM2t4N2s2MDNwbzJ3bzMyeHBzcjRkZiJ9.br_I_ut1iVuBPkdtTDNzPA").addTo(myMap);
+L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
+    maxZoom: 18,
+    accessToken: API_KEY
+  }).addTo(myMap);
 
 // Store our API endpoint inside queryUrl
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
