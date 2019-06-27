@@ -58,7 +58,7 @@ for (var i = 0; i < features.length; i++) {
     }).addTo(myMap);
 
     L.circle(latlng)
-      .bindPopup("Place: " + place + ":" + "Magnitude: " + magnitude)
+      .bindPopup("Place: " + place + ": " + "Magnitude: " + magnitude)
       .addTo(myMap);
 }
 
