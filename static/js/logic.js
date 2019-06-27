@@ -1,82 +1,3 @@
-// function markerSize(mag) {
-//   return mag * 10000;
-// }
-
-// // Adding tile layer
-// var lightmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-//   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-//   maxZoom: 18,
-//   id: "mapbox.light",
-//   accessToken: API_KEY
-// });
-
-// // Link to GeoJSON
-// var link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
-
-// var earthquakes = [];
-// var feature = [];
-
-// d3.json(link, function(response) {
-  
-//   for (var i = 0; i < response.features.length; i++) {
-//     feature.push(response.features[i])
-
-//     earthquakes.push(
-//       L.circle([response.features[i].geometry.coordinates[1], response.features[i].geometry.coordinates[0]], {
-//         stroke: false,
-//         fillOpacity: 0.75,
-//         color: "white",
-//         fillColor: "pink",
-//         radius: markerSize(response.features[i].properties.mag)
-//       })
-//     );
-//     // console.log(i)
-//   }
-//   // console.log(earthquakes);
-
-//   var markers = []
-//   var markerLayer = L.layerGroup(markers)
-//   var eqLayer = L.layerGroup(earthquakes);
-
-//   // Create a baseMaps object
-//   var baseMaps = {
-//     "Light Map": lightmap,
-//   };
-
-//   // Create an overlay object
-//   var overlayMaps = {
-//     "Earthquakes": eqLayer,
-//     "Markers": markerLayer
-//   };
-
-//   var myMap = L.map("map-id", {
-//     center: [38.7128, -114.0059],
-//     zoom: 5,
-//     layers: [lightmap, eqLayer, markerLayer]
-//   });
-
-//   L.control.layers(baseMaps, overlayMaps, {
-//     collapsed: false
-//   }).addTo(myMap);
-
-//   // adding markers for magnitude 4.5 or greater quakes
-//   for (var i = 0; i < feature.length; i++) {
-//     if (feature[i].properties.mag > 4.5) {
-//       var newMarker = L.marker([feature[i].geometry.coordinates[1], feature[i].geometry.coordinates[0]], {
-//       });
-
-//       // Add the new marker to the appropriate layer
-//       newMarker.addTo(markerLayer);
-
-//       // Bind a popup to the marker that will  display on click. This will be rendered as HTML
-//       newMarker.bindPopup("Location: " + feature[i].properties.place + ": " + "Magnitude: " + feature[i].properties.mag);
-
-      
-//     }
-//   }
-
-// });
-
 // create map
 var myMap = L.map("map-id", {
   center: [37.09, -95.71],
@@ -143,7 +64,7 @@ var legend = L.control({position: 'bottomright'});
 legend.onAdd = function (myMap){
   var div = L.DomUtil.create('div', 'info legend'),
     grades = [0,1,2,3,4,5];
-    div.innerHTML = '<h2>Magnitude</h2>'
+    div.innerHTML = '<h3>Magnitude</h3>'
 
 // Loop through our intervals and generate a label with a color square for each interval
   for (var i = 0; i < grades.length; i++){
